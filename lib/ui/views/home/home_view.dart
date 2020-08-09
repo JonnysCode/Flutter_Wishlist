@@ -21,10 +21,7 @@ class HomeView extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Text(
                 'Enter Code to view wishlist',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold
-                ),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
@@ -35,10 +32,7 @@ class HomeView extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Text(
                 'Register or login to create your own wishlist',
-                style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold
-                ),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
             SizedBox(
@@ -71,6 +65,26 @@ class HomeView extends StatelessWidget {
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
                     'Login',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 140,
+              child: RaisedButton(
+                elevation: 5.0,
+                onPressed: () => model.signOut(),
+                color: Colors.greenAccent,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    'Logout',
                     style: TextStyle(
                       fontSize: 20,
                     ),

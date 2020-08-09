@@ -25,7 +25,6 @@ class LoginView extends StatelessWidget {
               children: <Widget>[
                 SizedBox(
                   height: 150,
-                  child: Image.asset('assets/images/title.png'),
                 ),
                 InputField(
                   placeholder: 'Email',
@@ -57,9 +56,7 @@ class LoginView extends StatelessWidget {
                 verticalSpaceMedium,
                 TextLink(
                   'Create an Account if you\'re new.',
-                  onPressed: () {
-                    // TODO: Handle navigation
-                  },
+                  onPressed: () => model.navigateToSignUp(),
                 )
               ],
             ),

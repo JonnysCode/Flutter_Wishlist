@@ -6,6 +6,11 @@ import 'package:injectable/injectable.dart';
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
+  Future<bool> isUserLoggedIn() async {
+    var user = await _firebaseAuth.currentUser();
+    return user != null;
+  }
+
   Future loginWithEmail({
     @required String email,
     @required String password,
@@ -31,6 +36,17 @@ class AuthenticationService {
         password: password,
       );
       return authResult.user != null;
+    } catch (e) {
+      return e.message;
+    }
+  }
+
+  /// Signs out the firebase user
+  ///
+  /// Returns null if the user is signed out successfully
+  Future signOut() async {
+    try {
+      return await _firebaseAuth.signOut();
     } catch (e) {
       return e.message;
     }

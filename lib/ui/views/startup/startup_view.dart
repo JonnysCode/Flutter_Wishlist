@@ -8,15 +8,21 @@ class StartupView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<StartupViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
+        backgroundColor: Colors.white,
         body: Center(
-          child: Text('Startup View'),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => model.navigateToHome(),
-          child: Text('GO'),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              CircularProgressIndicator(
+                strokeWidth: 3,
+                valueColor: AlwaysStoppedAnimation(Color(0xff19c7c1)),
+              )
+            ],
+          ),
         ),
       ),
       viewModelBuilder: () => StartupViewModel(),
+      onModelReady: (model) => model.handleStartUpLogic(),
     );
   }
 }

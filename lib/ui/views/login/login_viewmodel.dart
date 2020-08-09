@@ -6,7 +6,8 @@ import 'package:wishlist/app/router.gr.dart';
 import 'package:wishlist/services/authentication_service.dart';
 
 class LoginViewModel extends BaseViewModel {
-  final AuthenticationService _authenticationService = locator<AuthenticationService>();
+  final AuthenticationService _authenticationService =
+      locator<AuthenticationService>();
   final DialogService _dialogService = locator<DialogService>();
   final NavigationService _navigationService = locator<NavigationService>();
 
@@ -38,5 +39,9 @@ class LoginViewModel extends BaseViewModel {
         description: result,
       );
     }
+  }
+
+  Future navigateToSignUp() async {
+    await _navigationService.navigateTo(Routes.signUpView);
   }
 }
